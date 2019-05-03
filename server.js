@@ -8,13 +8,8 @@ var PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var connection = mysql.createConnection({
-    host: "localhost",
-    port: 8889,
-    user:"root",
-    password: "root",
-    database: ""
-});
+require("./public/apiRoutes")(app);
+require("./public/htmlRoutes")(app);
 
 
 app.listen(PORT, function() {
