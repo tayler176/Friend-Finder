@@ -23,7 +23,7 @@
         <input type="text" id="photo" class="form-control" required="">
         <hr>
         <h3><strong>Question 1</strong></h3>
-        <h4>Question 1</h4>
+        <h4>You have a love for adventure</h4>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -35,7 +35,7 @@
         <br>
         <br>
         <h3><strong>Question 2</strong></h3>
-        <h4>Question 2</h4>
+        <h4>You enjoy challeging yourself</h4>
         <select class="custom-select" id="q2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -47,7 +47,7 @@
         <br>
         <br>
         <h3><strong>Question 3</strong></h3>
-        <h4>Question 3</h4>
+        <h4>You are more satified by creating things yourself rather than someone else</h4>
         <select class="custom-select" id="q3">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -59,7 +59,7 @@
         <br>
         <br>
         <h3><strong>Question 4</strong></h3>
-        <h4>Question 4</h4>
+        <h4>You are easily distractible</h4>
         <select class="custom-select" id="q4">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -71,8 +71,68 @@
         <br>
         <br>
         <h3><strong>Question 5</strong></h3>
-        <h4>Question 5</h4>
+        <h4>You are a procrastinator</h4>
         <select class="custom-select" id="q5">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <br>
+        <br>
+        <h3><strong>Question 6</strong></h3>
+        <h4>You are slow to anger</h4>
+        <select class="custom-select" id="q6">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <br>
+        <br>
+        <h3><strong>Question 7</strong></h3>
+        <h4>You are likely not to start something if you know it is destined to fail</h4>
+        <select class="custom-select" id="q7" required>
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <br>
+        <br>
+        <h3><strong>Question 8</strong></h3>
+        <h4>If you are the smartest person in the room you are in the wrong room</h4>
+        <select class="custom-select" id="q8">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <br>
+        <br>
+        <h3><strong>Question 9</strong></h3>
+        <h4>You care about the whole truth not just oneside of the truth</h4>
+        <select class="custom-select" id="q9">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <br>
+        <br>
+        <h3><strong>Question 10</strong></h3>
+        <h4>You care on what other people think about you</h4>
+        <select class="custom-select" id="q10">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -91,7 +151,42 @@
 <script type="text/javascript">
     $("#submit").on("click", (results) => {
         results.preventDefault();
-        var newSurvey = {
+
+        if($("#name").val().trim() === ""){
+            console.log("Please enter your Name")
+        }else if($("#photo").val().trim() === ""){
+            console.log("Please enter a Photo url")
+        }else if($("#q1").val().trim()===""){
+            console.log("Please answer Question 1")
+        }
+        else if($("#q2").val().trim()===""){
+            console.log("Please answer Question 2")
+        }
+        else if($("#q3").val().trim()===""){
+            console.log("Please answer Question 3")
+        }
+        else if($("#q4").val().trim()===""){
+            console.log("Please answer Question 4")
+        }
+        else if($("#q5").val().trim()===""){
+            console.log("Please answer Question 5")
+        }
+        else if($("#q6").val().trim()===""){
+            console.log("Please answer Question 6")
+        }
+        else if($("#q7").val().trim()===""){
+            console.log("Please answer Question 7")
+        }
+        else if($("#q8").val().trim()===""){
+            console.log("Please answer Question 8")
+        }
+        else if($("#q9").val().trim()===""){
+            console.log("Please answer Question 9")
+        }
+        else if($("#q10").val().trim()===""){
+            console.log("Please answer Question 10")
+        }else{
+            var newSurvey = {
             name: $("#name").val().trim(),
             photo: $("#photo").val().trim(),
             scores: [
@@ -99,9 +194,15 @@
                 $("#q2").val().trim(),
                 $("#q3").val().trim(),
                 $("#q4").val().trim(),
-                $("#q5").val().trim(),]
+                $("#q5").val().trim(),
+                $("#q6").val().trim(),
+                $("#q7").val().trim(),
+                $("#q8").val().trim(),
+                $("#q9").val().trim(),
+                $("#q10").val().trim()
+            ]
         };
-
+        
         $("#name").val(""),
         $("#photo").val(""),
         $("#q1").val(""),
@@ -109,10 +210,14 @@
         $("#q3").val(""),
         $("#q4").val(""),
         $("#q5").val(""),
-
-
+        $("#q6").val(""),
+        $("#q7").val(""),
+        $("#q8").val(""),
+        $("#q9").val(""),
+        $("#q10").val(""),
+    
         console.log(newSurvey)
-        console.log(newSurvey.scores)
+        console.log(newSurvey.scores)}
     })
 
 </script>
