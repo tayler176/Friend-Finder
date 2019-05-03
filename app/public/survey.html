@@ -143,7 +143,7 @@
         <br>
         <br>
 
-
+        <div class="error-text"></div>
         <button type="button" class="btn btn-success" id="submit">Submit Survey</button>
 
     </div>
@@ -152,72 +152,73 @@
     $("#submit").on("click", (results) => {
         results.preventDefault();
 
-        if($("#name").val().trim() === ""){
+        if ($("#name").val().trim() === "") {
+            $(".error-text").text("Please enter your Name")
             console.log("Please enter your Name")
-        }else if($("#photo").val().trim() === ""){
-            console.log("Please enter a Photo url")
-        }else if($("#q1").val().trim()===""){
-            console.log("Please answer Question 1")
-        }
-        else if($("#q2").val().trim()===""){
-            console.log("Please answer Question 2")
-        }
-        else if($("#q3").val().trim()===""){
-            console.log("Please answer Question 3")
-        }
-        else if($("#q4").val().trim()===""){
-            console.log("Please answer Question 4")
-        }
-        else if($("#q5").val().trim()===""){
-            console.log("Please answer Question 5")
-        }
-        else if($("#q6").val().trim()===""){
-            console.log("Please answer Question 6")
-        }
-        else if($("#q7").val().trim()===""){
-            console.log("Please answer Question 7")
-        }
-        else if($("#q8").val().trim()===""){
-            console.log("Please answer Question 8")
-        }
-        else if($("#q9").val().trim()===""){
-            console.log("Please answer Question 9")
-        }
-        else if($("#q10").val().trim()===""){
-            console.log("Please answer Question 10")
+        } else if ($("#photo").val().trim() === "") {
+            $(".error-text").text("Please enter a Photo url")
+        } else if ($("#q1").val().trim() === "") {
+            $(".error-text").text("Please answer Question 1")
+        }else if ($("#q2").val().trim() === "") {
+            $(".error-text").text("Please answer Question 2")
+        }else if ($("#q3").val().trim() === "") {
+            $(".error-text").text("Please answer Question 3")
+        }else if ($("#q4").val().trim() === "") {
+            $(".error-text").text("Please answer Question 4")
+        }else if ($("#q5").val().trim() === "") {
+            $(".error-text").text("Please answer Question 5")
+        }else if ($("#q6").val().trim() === "") {
+            $(".error-text").text("Please answer Question 6")
+        }else if ($("#q7").val().trim() === "") {
+            $(".error-text").text("Please answer Question 7")
+        }else if ($("#q8").val().trim() === "") {
+            $(".error-text").text("Please answer Question 8")
+        }else if ($("#q9").val().trim() === "") {
+            $(".error-text").text("Please answer Question 9")
+        }else if ($("#q10").val().trim() === "") {
+            $(".error-text").text("Please answer Question 10")
         }else{
+            $(".error-text").text("");
             var newSurvey = {
-            name: $("#name").val().trim(),
-            photo: $("#photo").val().trim(),
-            scores: [
-                $("#q1").val().trim(),
-                $("#q2").val().trim(),
-                $("#q3").val().trim(),
-                $("#q4").val().trim(),
-                $("#q5").val().trim(),
-                $("#q6").val().trim(),
-                $("#q7").val().trim(),
-                $("#q8").val().trim(),
-                $("#q9").val().trim(),
-                $("#q10").val().trim()
-            ]
-        };
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    $("#q1").val().trim(),
+                    $("#q2").val().trim(),
+                    $("#q3").val().trim(),
+                    $("#q4").val().trim(),
+                    $("#q5").val().trim(),
+                    $("#q6").val().trim(),
+                    $("#q7").val().trim(),
+                    $("#q8").val().trim(),
+                    $("#q9").val().trim(),
+                    $("#q10").val().trim(),
+                ]
+            };
+            $("#name").val(""),
+            $("#photo").val(""),
+            $("#q1").val(""),
+            $("#q2").val(""),
+            $("#q3").val(""),
+            $("#q4").val(""),
+            $("#q5").val(""),
+            $("#q6").val(""),
+            $("#q7").val(""),
+            $("#q8").val(""),
+            $("#q9").val(""),
+            $("#q10").val("")
         
-        $("#name").val(""),
-        $("#photo").val(""),
-        $("#q1").val(""),
-        $("#q2").val(""),
-        $("#q3").val(""),
-        $("#q4").val(""),
-        $("#q5").val(""),
-        $("#q6").val(""),
-        $("#q7").val(""),
-        $("#q8").val(""),
-        $("#q9").val(""),
-        $("#q10").val(""),
-    
-        console.log(newSurvey)
-        console.log(newSurvey.scores)}
+        }           
+        // $.post("/data/friends", newSurvey, function (data) {
+        //     console.log(data.name);
+        //     console.log(data.photo);
+        //     console.log(newSurvey)
+        //     console.log(newSurvey.scores)
+        //     $("#match-name").text(data.name);
+        //     $("#match-img").attr("src", data.photo);
+        //     $("#results-modal").modal("toggle");
+        // })
+
     })
 
 </script>
