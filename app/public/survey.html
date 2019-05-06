@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Survey Page</title>
 </head>
@@ -145,10 +145,10 @@
         <br>
 
         <div class="error-text" style="color:red;"></div>
-        <button type="button" class="btn btn-success" id="submit">Submit Survey</button>
+        <button type="button" class="btn btn-success" id="submit" >Submit Survey</button>
         <br>
-
-        <div class="modal" id="best-friend-modal" tabindex="-1" role="dialog">
+<!-- data-toggle="modal"data-target="#best-friend-modal" -->
+        <div class="modal fade" id="best-friend-modal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -169,11 +169,18 @@
             </div>
         </div>
     </div>
+        <!-- <div class="modal-body">
+            <p id="best-friend-text"></p>
+            <h6 id="best-friend-name"></h6>
+            <img id="best-friend-photo" src="" alt="">
+        </div> -->
+
+
 </body>
 
 <script type="text/javascript">
 
-
+$(document).ready(function(){
     $("#submit").on("click", (results) => {
         results.preventDefault();
 
@@ -235,12 +242,18 @@
                 $.post("/api/friends", newSurvey, function (data) {
                     console.log("person added")
                     console.log(data);
+                    // $(".container").text("")
+                    $("#best-friend-text").text("Your New Best Friend is...");
                     $("#best-friend-name").text(data.name);
-                    $("#best-friend-photo").attr("src", data.photo);
-                    $("#best-friend-modal").modal('show');
+                    $("#best-friend-photo").attr("src", data.photo);            
+                    $("#best-friend-modal").modal('toggle');
+                    jQuery
                 });
-        };
-    })
+        }; console.log(("#best-friend-modal").modal)
+    })})
+    
+
+   
 </script>
 
 </html>

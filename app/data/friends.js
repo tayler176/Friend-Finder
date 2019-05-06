@@ -1,7 +1,7 @@
 var friendArray = [
     {
         "name":"Ahmed",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://pixel.nymag.com/imgs/daily/vulture/2018/09/13/13-tim-allen-last-man-standing.w330.h330.jpg",
         "scores":[
             5,
             1,
@@ -17,7 +17,7 @@ var friendArray = [
       },
       {
         "name":"small",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"",
         "scores":[
             1,
             1,
@@ -33,7 +33,7 @@ var friendArray = [
       },
       {
         "name":"big",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://pixel.nymag.com/imgs/daily/vulture/2018/09/13/13-tim-allen-last-man-standing.w330.h330.jpg",
         "scores":[
             5,
             5,
