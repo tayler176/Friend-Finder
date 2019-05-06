@@ -17,15 +17,13 @@ module.exports = function (app) {
       }
       scoreArray.push(friendScore);
       friendScore = 0;
-    } console.log(req.body)
-    console.log(scoreArray)
+    } 
     var lastPerson = parseInt(scoreArray.length - 1)
     for (var k = 0; k < scoreArray.length - 1; k++) {
       var diffScore = parseInt(scoreArray[k] - scoreArray[lastPerson]);
       var absoluteDiffScore = Math.abs(diffScore)
       diffArray.push(absoluteDiffScore)
     }
-    console.log(diffArray)
     Array.min = function (diffArray) {
       return Math.min.apply(Math, diffArray);
     };
@@ -33,7 +31,6 @@ module.exports = function (app) {
     var indexOfMinimum = diffArray.indexOf(minimum)
     var bestFriend = friends[indexOfMinimum]
     res.json(bestFriend);
-    console.log(bestFriend)
   });
   app.post("/api/clear", function (req, res) {
     friends.length = 0;
