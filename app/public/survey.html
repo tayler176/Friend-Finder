@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Survey Page</title>
 </head>
@@ -18,15 +18,15 @@
         <hr>
         <h3><strong>About You</strong></h3>
         <h4>Name (Required)</h4>
-        <input type="text" id="name" class="form-control" required="">
+        <input type="text" id="name" class="form-control" required="" value="asd">
         <br>
         <h4>Link to Photo Image (Required)</h4>
-        <input type="text" id="photo" class="form-control" required="">
+        <input type="text" id="photo" class="form-control" required="" value="as123d">
         <hr>
         <h3><strong>Question 1</strong></h3>
         <h4>You have a love for adventure</h4>
         <select class="custom-select" id="q1">
-            <option value=""></option>
+            <option value="3"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -38,7 +38,7 @@
         <h3><strong>Question 2</strong></h3>
         <h4>You enjoy challeging yourself</h4>
         <select class="custom-select" id="q2">
-            <option value=""></option>
+            <option value="2"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -50,7 +50,7 @@
         <h3><strong>Question 3</strong></h3>
         <h4>You are more satified by creating things yourself rather than someone else</h4>
         <select class="custom-select" id="q3">
-            <option value=""></option>
+            <option value="2"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -62,7 +62,7 @@
         <h3><strong>Question 4</strong></h3>
         <h4>You are easily distractible</h4>
         <select class="custom-select" id="q4">
-            <option value=""></option>
+            <option value="1"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -74,7 +74,7 @@
         <h3><strong>Question 5</strong></h3>
         <h4>You are a procrastinator</h4>
         <select class="custom-select" id="q5">
-            <option value=""></option>
+            <option value="1"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -86,7 +86,7 @@
         <h3><strong>Question 6</strong></h3>
         <h4>You are slow to anger</h4>
         <select class="custom-select" id="q6">
-            <option value=""></option>
+            <option value="2"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -98,7 +98,7 @@
         <h3><strong>Question 7</strong></h3>
         <h4>You are likely not to start something if you know it is destined to fail</h4>
         <select class="custom-select" id="q7" required>
-            <option value=""></option>
+            <option value="2"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -110,7 +110,7 @@
         <h3><strong>Question 8</strong></h3>
         <h4>If you are the smartest person in the room you are in the wrong room</h4>
         <select class="custom-select" id="q8">
-            <option value=""></option>
+            <option value="2"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -122,7 +122,7 @@
         <h3><strong>Question 9</strong></h3>
         <h4>You care about the whole truth not just oneside of the truth</h4>
         <select class="custom-select" id="q9">
-            <option value=""></option>
+            <option value="2"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -134,7 +134,7 @@
         <h3><strong>Question 10</strong></h3>
         <h4>You care on what other people think about you</h4>
         <select class="custom-select" id="q10">
-            <option value=""></option>
+            <option value="2"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -148,37 +148,59 @@
         <button type="button" class="btn btn-success" id="submit">Submit Survey</button>
         <br>
 
+        <div class="modal" id="best-friend-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">A Match has been found!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Your New Best Friend is...</p>
+                        <h6 id="best-friend-name"></h6>
+                        <img id="best-friend-photo" src="" alt="Meet your new friend!">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 <script type="text/javascript">
+
+
     $("#submit").on("click", (results) => {
         results.preventDefault();
-        console.log(typeof $("#q1").val().trim())
 
         if ($("#name").val().trim() === "") {
             $(".error-text").text("Please enter your Name")
         } else if ($("#photo").val().trim() === "") {
             $(".error-text").text("Please enter a Photo url")
-            } else if ($("#q1").val().trim() === "") {
-                $(".error-text").text("Please answer Question 1")
-            } else if ($("#q2").val().trim() === "") {
-                $(".error-text").text("Please answer Question 2")
-            } else if ($("#q3").val().trim() === "") {
-                $(".error-text").text("Please answer Question 3")
-            } else if ($("#q4").val().trim() === "") {
-                $(".error-text").text("Please answer Question 4")
-            } else if ($("#q5").val().trim() === "") {
-                $(".error-text").text("Please answer Question 5")
-            } else if ($("#q6").val().trim() === "") {
-                $(".error-text").text("Please answer Question 6")
-            } else if ($("#q7").val().trim() === "") {
-                $(".error-text").text("Please answer Question 7")
-            } else if ($("#q8").val().trim() === "") {
-                $(".error-text").text("Please answer Question 8")
-            } else if ($("#q9").val().trim() === "") {
-                $(".error-text").text("Please answer Question 9")
-            } else if ($("#q10").val().trim() === "") {
-                $(".error-text").text("Please answer Question 10")
+        } else if ($("#q1").val().trim() === "") {
+            $(".error-text").text("Please answer Question 1")
+        } else if ($("#q2").val().trim() === "") {
+            $(".error-text").text("Please answer Question 2")
+        } else if ($("#q3").val().trim() === "") {
+            $(".error-text").text("Please answer Question 3")
+        } else if ($("#q4").val().trim() === "") {
+            $(".error-text").text("Please answer Question 4")
+        } else if ($("#q5").val().trim() === "") {
+            $(".error-text").text("Please answer Question 5")
+        } else if ($("#q6").val().trim() === "") {
+            $(".error-text").text("Please answer Question 6")
+        } else if ($("#q7").val().trim() === "") {
+            $(".error-text").text("Please answer Question 7")
+        } else if ($("#q8").val().trim() === "") {
+            $(".error-text").text("Please answer Question 8")
+        } else if ($("#q9").val().trim() === "") {
+            $(".error-text").text("Please answer Question 9")
+        } else if ($("#q10").val().trim() === "") {
+            $(".error-text").text("Please answer Question 10")
         }
         else {
             $(".error-text").text("");
@@ -210,14 +232,15 @@
                 $("#q8").val(""),
                 $("#q9").val(""),
                 $("#q10").val(""),
-            $.post("/api/friends", newSurvey, function () {
-                console.log("person added")
-            })
+                $.post("/api/friends", newSurvey, function (data) {
+                    console.log("person added")
+                    console.log(data);
+                    $("#best-friend-name").text(data.name);
+                    $("#best-friend-photo").attr("src", data.photo);
+                    $("#best-friend-modal").modal('show');
+                });
         };
     })
-
-
-
 </script>
 
 </html>
